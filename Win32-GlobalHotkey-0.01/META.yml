@@ -18,7 +18,8 @@ no_index:
     - t
     - inc
 requires:
+  Carp: 0
   Thread::Cancel: 0
   threads: 0
   threads::shared: 0
-version: 0.01_1
+version: 0.01

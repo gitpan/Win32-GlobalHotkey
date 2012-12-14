@@ -32,12 +32,13 @@
       },
       "runtime" : {
          "requires" : {
+            "Carp" : "0",
             "Thread::Cancel" : "0",
             "threads" : "0",
             "threads::shared" : "0"
          }
       }
    },
-   "release_status" : "testing",
-   "version" : "0.01_1"
+   "release_status" : "stable",
+   "version" : "0.01"
 }
