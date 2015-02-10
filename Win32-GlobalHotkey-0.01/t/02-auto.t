@@ -24,8 +24,8 @@ my $q_pressed : shared = 0;
 
 eval {
 	my $hk = Win32::GlobalHotkey->new;
-	$hk->PrepareHotkey( vkey => 'C', modifier =>  Win32::GlobalHotkey::MOD_ALT, cb => sub{ $c_pressed = 1 } );
-	$hk->PrepareHotkey( vkey => 'Q', modifier =>  Win32::GlobalHotkey::MOD_CONTROL |  Win32::GlobalHotkey::MOD_ALT, cb => sub{ $q_pressed = 1 } );
+	$hk->PrepareHotkey( vkey => Win32::GlobalHotkey::KEY_C, modifier =>  Win32::GlobalHotkey::MOD_ALT, cb => sub{ $c_pressed = 1 } );
+	$hk->PrepareHotkey( vkey => Win32::GlobalHotkey::KEY_Q, modifier =>  Win32::GlobalHotkey::MOD_CONTROL |  Win32::GlobalHotkey::MOD_ALT, cb => sub{ $q_pressed = 1 } );
 	$hk->StartEventLoop;
 	
 	Win32::GuiTest->import( qw( SendKeys ) );

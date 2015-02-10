@@ -11,9 +11,11 @@ use Test::More tests => 1;
 my $hk = Win32::GlobalHotkey->new( warn => sub { die 'test: ' . $_[0] } );
 
 
-# warn - wrong key
+# warn - Event loop started
 eval {
-	$hk->PrepareHotkey( vkey => '+', modifier =>  Win32::GlobalHotkey::MOD_ALT, cb => sub{ print 'ALT-B', "\n" } );
+	$hk->StartEventLoop;
+	$hk->PrepareHotkey( vkey => Win32::GlobalHotkey::KEY_ADD, modifier =>  Win32::GlobalHotkey::MOD_ALT, cb => sub{ print 'ALT-B', "\n" } );
+	$hk->StopEventLoop;
 };
 
 if ( substr( $@, 0, 4 ) eq 'test' ) {
